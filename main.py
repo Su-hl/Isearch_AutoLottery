@@ -357,27 +357,27 @@ if __name__ == "__main__":
         logger.info('请先从Actions secrets配置用户名及密码，再启动本流程！')
     else:
         # 设计器签到、抽奖
-        studio = I_Studio(username, password)
-        if studio._access_token:  # 登录成功进行后续操作
-            needCheckDate = studio.checkinHistroy()  # 获取本周期待签到日期
-            if needCheckDate:
-                logger.info('需进行签到日期：%s' % str(needCheckDate))
-                logger.info('-' * 5 + '开始进行签到' + '-' * 5)
-                for day in needCheckDate:
-                    # 进行签到
-                    studio.checkin(signTime=day)
-                    time.sleep(random.randint(1, 2))
-            else:
-                logger.info('无需签到日期，跳过签到动作！')
+#         studio = I_Studio(username, password)
+#         if studio._access_token:  # 登录成功进行后续操作
+#             needCheckDate = studio.checkinHistroy()  # 获取本周期待签到日期
+#             if needCheckDate:
+#                 logger.info('需进行签到日期：%s' % str(needCheckDate))
+#                 logger.info('-' * 5 + '开始进行签到' + '-' * 5)
+#                 for day in needCheckDate:
+#                     # 进行签到
+#                     studio.checkin(signTime=day)
+#                     time.sleep(random.randint(1, 2))
+#             else:
+#                 logger.info('无需签到日期，跳过签到动作！')
 
-            remainingTimes = studio.lotterycount()
-            if remainingTimes:
-                logger.info('-' * 5 + '开始进行抽奖' + '-' * 5)
-                for _ in range(remainingTimes):
-                    studio.lottery()
-                    time.sleep(random.randint(1, 2))
-            else:
-                logger.info('无可抽奖次数，跳过抽奖动作！')
+#             remainingTimes = studio.lotterycount()
+#             if remainingTimes:
+#                 logger.info('-' * 5 + '开始进行抽奖' + '-' * 5)
+#                 for _ in range(remainingTimes):
+#                     studio.lottery()
+#                     time.sleep(random.randint(1, 2))
+#             else:
+#                 logger.info('无可抽奖次数，跳过抽奖动作！')
 
         # 社区发帖、删帖
         community = I_Support(username, password)
