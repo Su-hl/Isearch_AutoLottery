@@ -395,7 +395,7 @@ if __name__ == "__main__":
                 logger.info(e)
 
     # 微信通知
-    if serverkey:
-        sendMessage(serverkey)
-    else:
-        logger.info('未开启Server酱推送，不进行微信通知！')
+#     if serverkey:
+#         sendMessage(serverkey)
+#     else:
+#         logger.info('未开启Server酱推送，不进行微信通知！')
